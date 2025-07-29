@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geraldo Aliaj - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --background: #f4f7fb;
+      --card-bg: #ffffff;
+      --text: #2c3e50;
+      --muted: #7f8c8d;
+      --accent: #d0e9ff;
+      --radius: 14px;
+      --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+
+        .sunny {
+          background: linear-gradient(to right, #fbd786, #f7797d);
+        }
+
+        .cloudy {
+          background: linear-gradient(to right, #bdc3c7, #2c3e50);
+        }
+
+        .rainy {
+          background: linear-gradient(to right, #314755, #26a0da);
+        }
+
+        .clear {
+          background: linear-gradient(to right, #56ccf2, #2f80ed);
+        }
+
+        .snowy {
+          background: linear-gradient(to right, #e0eafc, #cfdef3);
+        }
+
+        .default-weather {
+          background: var(--background);
+        }
+
+
+    .gif-header {
+      width: 100%;
+      height: 80px;
+      overflow: hidden;
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .gif-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .personal-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .personal-info img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+
+    .info-text p {
+      margin: 0.4rem 0;
+    }
+
+    .info-text a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin: 3rem 0 1rem;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 0.3rem;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .job-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .job.active .job-details {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 0.8rem;
+      color: var(--text);
+    }
+
+    .job-icon svg {
+      width: 1em;
+      height: 1em;
+      transition: transform 0.3s ease;
+    }
+
+    .job.active .job-icon svg {
+      transform: rotate(90deg);
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      list-style-type: disc;
+    }
+
+    @media (max-width: 600px) {
+      .personal-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .personal-info img {
+        margin-bottom: 1rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .section-columns {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .left-section,
+    .right-section {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .left-section h2 {
+      text-align: left;
+    }
+
+    .right-section h2 {
+      text-align: right;
+    }
+
+    @media (max-width: 768px) {
+      .section-columns {
+        flex-direction: column;
+      }
+
+      .right-section h2 {
+        text-align: left;
+      }
+    }
+
+  .card.summary h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem; /* Optional: controls spacing below the heading */
+  }
+
+    .summary p {
+      font-size: 1rem;
+      color: var(--text);
+      margin-top: 0.4rem;
+      line-height: 1.6;
+    }
+
+    .language-minimal {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .language-minimal .section-title-below {
+      font-size: 1.4rem;
+      margin-top: 1.2rem;
+      color: var(--primary);
+      border-top: 2px solid var(--accent);
+      padding-top: 0.5rem;
+    }
+     
+    .layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.weather-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.weather-sidebar .card {
+  position: sticky;
+  top: 2rem;
+  font-size: 0.95rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.weather-sidebar h3 {
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .weather-sidebar {
+    width: 100%;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="gif-header">
+    <img src="hello_world.gif" alt="Hello World in Binary Animation">
+  </div>
+
+<div class="layout">
+  <aside class="weather-sidebar">
+    <div class="card">
+      <p id="local-time">🕒 Loading time...</p>
+      <p id="local-weather">🌤 Fetching weather...</p>
+    </div>
+  </aside>
+
+  <div class="container">
+    <header>
+      <h1>Geraldo Aliaj</h1>
+      <p>MTech in Software Engineering • Backend Programing Enthusiast • Problem Solver</p>
+    </header>
+
+    <div class="card personal-info">
+      <img src="1745379782451.jpg" alt="John Doe Photo">
+      <div class="info-text">
+        <p><strong>Email:</strong> <a href="mailto:geraldo.aliaj@gmail.com">geraldo.aliaj@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:++306946939789">+30 694 693 9789</a></p>
+        <p><strong>Location:</strong> Spata-Artemida, Attiki, Greece</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/geraldo-aliaj-6b62ba1a6/" target="_blank">www.linkedin.com/in/geraldo-aliaj</a></p>
+      </div>
+    </div>
+
+    <div class="card summary">
+      <h2>Summary</h2>
+      <p>
+            Tech professional with a Master’s in Computer Engineering and a passion for learning. Always 
+            exploring new tools and ideas to grow and solve real-world problems. Always, open to n
+            ew challenges in the tech field.
+      </p>
+    </div>
+
+    <div class="section-columns">
+      <section class="left-section">
+        <h2>Experience</h2>
+
+<div class="card job" onclick="toggleDetails(this)">
+  <div class="job-header">
+    <span>Software Support Engineer (Constrat GA)</span>
+    <span class="job-dates">02/06/2025 – Present</span>
+    <span class="job-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </span>
+  </div>
+  <div class="job-details">
+    <p>Helping and training customers and company employees on a variety of software solutions. Responsible for testing APIs, system parameterization, and automation.</p>
+    <ul>
+      <li>API testing using Postman</li>
+      <li>System parameterization and troubleshooting</li>
+      <li>Automation scripts using Python</li>
+      <li>Training sessions for customers and internal staff</li>
+    </ul>
+  </div>
+</div>
+      </section>
+
+      <section class="right-section">
+        <h2>Education</h2>
+<div class="card job" onclick="toggleDetails(this)">
+  <div class="job-header">
+    <span>M.Tech in Software Engineering - University of West Attica</span>
+    <span class="job-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </span>
+  </div>
+  <div class="job-details">
+    <p>Completed a Master's degree with extensive coursework covering a wide range of Software and Computer Engineering topics.</p>
+    <ul>
+      <li>Advanced Software Engineering</li>
+      <li>Databases & Data Management</li>
+      <li>AI & Machine Learning fundamentals</li>
+      <li>System Architecture & Design Patterns</li>
+      <li>Grade: 7.42/10</li>
+      <li>
+        <strong>Master Thesis:</strong> 
+        <a href="https://polynoe.lib.uniwa.gr/xmlui/handle/11400/6600" target="_blank">
+          Cryptography in the Age of Quantum Computers – Current Situation and Future Challenges
+        </a> 
+        (Python, Cryptography, Quantum Computing)
+      </li>
+    </ul>
+  </div>
+</div>
+
+      </section>
+    </div>
+
+    <section class="section-columns">
+      <div class="left-section">
+        <h2>Technical Skills</h2>
+        <div class="card">
+          <ul>
+        <li><strong>Languages:</strong> Python, COBOL, Java</li>
+        <li><strong>Tools:</strong> GitHub, GitLab, pgAdmin, VS Code</li>
+        <li><strong>Databases:</strong> MySQL</li>
+          </ul>
+        </div>
+      </div>
+
+<div class="right-section">
+  <h2>Languages</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Albanian:</strong> Native proficiency</li>
+      <li><strong>Greek:</strong> Native proficiency</li>
+      <li><strong>English:</strong> Upper-Intermediate (B2), strong technical communication skills</li>
+    </ul>
+  </div>
+</div>
+
+    <section>
+  <h2>Hobbies</h2>
+  <div class="card">
+    <ul>
+      <li>
+        <strong>Hiking</strong><br>
+        Enjoy exploring nature trails and outdoor adventures
+      </li>
+      <li>
+        <strong>Swimming</strong><br>
+        Regularly swim for fitness and relaxation
+      </li>
+      <li>
+        <strong>Photography</strong><br>
+        I enjoy capturing landscapes and the night sky
+      </li>
+      <li>
+        <strong>Recreational Mathematics</strong><br>
+        Passionate about solving puzzles 
+      </li>
+        
+
+
+
+  <script>
+    function toggleDetails(el) {
+      el.classList.toggle('active');
+    }
+      
+     function updateTime() {
+    const now = new Date();
+    document.getElementById('local-time').textContent = "🕒 " + now.toLocaleTimeString();
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
+
+  async function fetchWeather(city = "") {
+    const url = `https://wttr.in/${city}?format=3`;
+    try {
+      const res = await fetch(url);
+      const text = await res.text();
+      document.getElementById('local-weather').textContent = "🌤 " + text;
+    } catch (err) {
+      document.getElementById('local-weather').textContent = "Unable to load weather.";
+    }
+  }
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async position => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      try {
+        const geoRes = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+        const geoData = await geoRes.json();
+        const city = geoData.address.city || geoData.address.town || geoData.address.village || geoData.address.state || "";
+        fetchWeather(city);
+      } catch {
+        fetchWeather(); // fallback to generic
+      }
+    }, () => fetchWeather()); // if permission denied
+  } else {
+    fetchWeather();
+  }
+
+
+  </script>
+</body>
+</html>
